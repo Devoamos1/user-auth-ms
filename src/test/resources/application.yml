@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile:
+
+# This YAML configuration sets show-details to "always", which means that all health indicator details will be displayed when you access the Actuator health endpoint (/actuator/health).
+management:
+  health:
+    customhealthcheck:
+      enabled: true
+
+user-auth:
+  openapi:
+    dev-url: 'test'
+    prod-url: 'test'
