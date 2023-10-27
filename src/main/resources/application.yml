@@ -31,4 +31,4 @@ logging:
 # Customise swagger url
 springdoc:
   swagger-ui:
-    path: 'swagger-ui-custom.html'
+    path: 'swagger-ui-home.html'

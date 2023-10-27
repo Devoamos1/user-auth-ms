@@ -53,6 +53,6 @@ public class UserController {
 
     @PostMapping(value = "/users")
     public String createUser(@Valid @RequestBody User user){
-        return user.getUserName() + "User created";
+        return "User created " + user.getUserName();
     }
 }

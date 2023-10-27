@@ -11,16 +11,30 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+    private static final String[] AUTH_WHITELIST = {
+            // -- Swagger UI v2
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/webjars/**",
+            // -- Swagger UI v3 (OpenAPI)
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            // other public endpoints of your API may be appended to this array
+            "/actuator/health"
+    };
+
     @Value("${spring.config.activate.on-profile}")
     private String activeProfile;
+
 
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         if ("local".equals(activeProfile)) {
             // Configure security for the 'local' profile (e.g., disable authentication)
-            http
-                    .authorizeHttpRequests(requests -> requests
-                            .requestMatchers("/*", "/actuator/health", "/swagger", "/v2/api-docs", "/v3/api-docs/**", "/swagger-ui-custom.html").permitAll()
+            http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(requests -> requests
+                            .requestMatchers("/**").permitAll()
                             .anyRequest().authenticated()
                     );
             return http.build();
@@ -28,12 +42,9 @@ public class WebSecurityConfig {
 
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/*").permitAll()
+                        .requestMatchers(AUTH_WHITELIST).permitAll()
                         .anyRequest().authenticated()
                 );
-        // ...
-        // Disable CSRF for development/testing
-
         return http.build();
     }
 
