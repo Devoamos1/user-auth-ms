@@ -1,24 +1,34 @@
-# With that change, you can run your app again and visit the home page at http://localhost:8080.
-# Now, instead of the home page, you should be redirected to login with GitHub.
-# If you do that, and accept any authorizations you are asked to make, you will be redirected back to the local app, and the home page will be visible.
-# If you stay logged in to GitHub, you won?t have to re-authenticate with this local app, even if you open it in a fresh browser with no cookies and no cached data. (That?s what Single Sign-On means.)
+management:
+  health:
+    customhealthcheck:
+      enabled: true
 
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            clientId: '80460963d1b618a16f47'
-            clientSecret: 'e69487768592d5ede78f907c570290510cbe956e'
-# ...
 
 user-auth:
   openapi:
     dev-url: 'http://localhost:8080'
-    prod-url: 'https://bezkoder-api.com'
+    prod-url: 'https://share-user-api.com'
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+# Enable management endpoint details
+management:
+  endpoint:
+    health:
+      show-details: always
+
+# Show debug logs
+logging:
+  level:
+    com.share.userauthms: DEBUG
+    org.springframework.security.web: DEBUG
+
 
 # Customise swagger url
 springdoc:
   swagger-ui:
-    path: 'swagger-ui-custom.html'
+    path: 'swagger-ui-home.html'
