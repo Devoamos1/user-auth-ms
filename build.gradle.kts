@@ -4,9 +4,9 @@ plugins {
 	kotlin("jvm") version "1.9.10" // Adjust this to your Kotlin version
 }
 
-val lombokVersion = "1.18.30" // Your specified version
-val springDocVersion = "2.2.0" // Your specified version
-val springCloudVersion = "2020.0.4"
+val lombokVersion = "1.18.30"
+val springDocVersion = "2.2.0"
+val springCloudVersion = "2022.0.3"
 
 group = "com.share"
 version = "0.0.1"
