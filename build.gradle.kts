@@ -35,7 +35,7 @@ dependencies {
 
 	// Other dependencies
 	implementation("org.springframework.boot:spring-boot-devtools")
-	implementation("org.webjars:jquery:3.4.1")
+	implementation("org.webjars:jquery:3.7.1")
 	implementation("org.webjars:bootstrap:4.3.1")
 	implementation("org.webjars:webjars-locator-core")
 
@@ -49,4 +49,8 @@ dependencies {
 
 tasks.test {
 	useJUnitPlatform()
+
+	testLogging {
+		events("passed")
+	}
 }
