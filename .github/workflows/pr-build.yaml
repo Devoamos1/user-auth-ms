@@ -9,4 +9,4 @@ on:
 
 jobs:
   call-pr-build-workflow:
-    uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml
+    uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@feature/BLOG-17-reusable-workflows
