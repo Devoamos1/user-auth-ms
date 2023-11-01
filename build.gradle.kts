@@ -29,7 +29,6 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
 
-
 	// Your specified versions
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springDocVersion")
 
