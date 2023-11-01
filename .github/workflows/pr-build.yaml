@@ -1,12 +1,9 @@
 on:
-  workflow_call:
-    inputs:
-      java-version:
-        description: 'Select Java version'
-        default: '17'
-        required: true
-        type: string
-
+  pull_request:
+    types: [ opened, reopened, synchronize ]
 jobs:
   call-pr-build-workflow:
     uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@feature/BLOG-17-reusable-workflows
+    with:
+      java-version: '11'
+      java-distribution: 'temurin'
