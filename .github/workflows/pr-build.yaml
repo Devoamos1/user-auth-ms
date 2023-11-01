@@ -5,5 +5,5 @@ jobs:
   call-pr-build-workflow:
     uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@feature/BLOG-17-reusable-workflows
     with:
-      java-version: '11'
+      java-version: '17'
       java-distribution: 'temurin'
