@@ -1,5 +1,5 @@
 plugins {
-	id("org.springframework.boot") version "3.1.4" // Your specified version
+	id("org.springframework.boot") version "3.1.5" // Your specified version
 	id("io.spring.dependency-management") version "1.1.3" // Your specified version
 	kotlin("jvm") version "1.9.10" // Adjust this to your Kotlin version
 }
