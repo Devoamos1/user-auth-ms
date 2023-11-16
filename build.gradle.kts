@@ -1,6 +1,7 @@
 plugins {
 	id("org.springframework.boot") version "3.1.5" // Your specified version
 	id("io.spring.dependency-management") version "1.1.3" // Your specified version
+	jacoco
 	kotlin("jvm") version "1.9.10" // Adjust this to your Kotlin version
 }
 
@@ -13,6 +14,11 @@ version = "0.0.1"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
+}
+
+jacoco {
+	toolVersion = "0.8.11"
+	reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
 }
 
 repositories {
@@ -51,5 +57,17 @@ tasks.test {
 
 	testLogging {
 		events("passed")
+	}
+
+	finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+
+tasks.jacocoTestReport {
+	dependsOn(tasks.test) // tests are required to run before generating the report
+
+	reports {
+		xml.required = false
+		csv.required = false
+		html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
 	}
 }
