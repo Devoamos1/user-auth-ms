@@ -9,3 +9,4 @@ jobs:
     with:
       java-version: '17'
       java-distribution: 'temurin'
+    secrets: inherit
