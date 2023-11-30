@@ -18,7 +18,7 @@ java {
 
 jacoco {
 	toolVersion = "0.8.11"
-	reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
+	reportsDirectory = layout.buildDirectory.dir("reports/jacoco")
 }
 
 repositories {
