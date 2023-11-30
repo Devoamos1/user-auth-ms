@@ -1,0 +1,15 @@
+name: Build on PR
+
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+jobs:
+  call-pr-build-workflow:
+    uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@main
+    with:
+      java-version: '17'
+      java-distribution: 'temurin'
+    secrets: inherit
+    permissions:
+      contents: write
+      pull-requests: write
