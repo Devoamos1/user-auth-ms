@@ -5,7 +5,7 @@ on:
     types: [ opened, reopened, synchronize ]
 jobs:
   call-pr-build-workflow:
-    uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@feature/BLOG-17-reusable-workflows
+    uses: theshareplatform/share-reusable-workflows/.github/workflows/pr-build.yaml@main
     with:
       java-version: '17'
       java-distribution: 'temurin'
