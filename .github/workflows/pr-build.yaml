@@ -10,3 +10,6 @@ jobs:
       java-version: '17'
       java-distribution: 'temurin'
     secrets: inherit
+    permissions:
+      contents: write
+      pull-requests: write
